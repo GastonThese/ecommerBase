@@ -44,12 +44,14 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
   gem "dotenv-rails"
-  gem "rspec-rails"
+  gem "rspec-rails", '8.0'
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
+  gem "active_record_doctor"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
