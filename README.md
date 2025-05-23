@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Informacion
+En el proyecto se pueden encontrar comentarios con el formato `# Conf / ...` previo a la configuracion necesaria para diferentes cosas. Rspec, uuid, etc
