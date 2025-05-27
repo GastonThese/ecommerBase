@@ -5,7 +5,7 @@ Rails.application.configure do
   # crear objetos en los tests. Esto permite que los tests no deban preocuparse de
   # como se crean los objetos, y solo se centren en como se comportan en diferentes
   # situaciones.
-  config.factory_bot.definition_file_paths = ["spec/factories"]
+  config.factory_bot.definition_file_paths = [ "spec/factories" ]
 
   config.enable_reloading = false
 

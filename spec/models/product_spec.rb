@@ -13,6 +13,15 @@ RSpec.describe Product, type: :model do
     it "publish true without all its fields" do
       expect { create(:product, :invalid) }.to raise_error(ActiveRecord::RecordInvalid, /Name can't be blank/)
     end
+
+    it "code no can be empty" do 
+      expect { create(:product, code: nil) }.to raise_error(ActiveRecord::RecordInvalid, /Code can't be blank/)
+    end
+
+    it "code can be unique" do
+      product = create(:product, :published)
+      expect { create(:product, :published, code: product.code) }.to raise_error(ActiveRecord::RecordInvalid, /Code has already been taken/)
+    end
   end
 
   describe 'Required fields if is publish' do
@@ -26,7 +35,6 @@ RSpec.describe Product, type: :model do
   describe 'Not required fields if is not publish' do
     before { allow(subject).to receive(:publish?).and_return(false) }
     it { expect(subject).not_to validate_presence_of(:name) }
-    it { expect(subject).not_to validate_presence_of(:code) }
     it { expect(subject).not_to validate_presence_of(:description) }
     it { expect(subject).not_to validate_presence_of(:price) }
   end

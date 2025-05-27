@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  validates :name, :code, :description, :price, presence: true, if: :publish?
+  validates :name, :description, :price, presence: true, if: :publish?
+  validates :code, presence: true
+  validates :code, uniqueness: true
+  validates :publish, inclusion: { in: [ true, false ] }
 end
-
-

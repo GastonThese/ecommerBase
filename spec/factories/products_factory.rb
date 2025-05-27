@@ -21,7 +21,7 @@ FactoryBot.define do
       name { nil }
       code { nil }
       description { nil }
-      publish { true}
+      publish { true }
     end
   end
 end

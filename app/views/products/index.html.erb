@@ -1,0 +1,23 @@
+<h1>Product#index</h1>
+<p>Find me in app/views/product/index.html.erb</p>
+
+<% if flash[:alert] %>
+  <p class="alert" style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+
+<% @products.each do |product| %>
+  <div>
+    <h2><%= product.name %></h2>
+    <p><%= product.description %></p>
+    <p>Price: <%= number_to_currency(product.price) %></p>
+    <%= link_to 'Show', product_path(product) %>
+    <%= link_to 'Edit', edit_product_path(product) %>
+    <%= button_to 'Delete', product, method: :delete%>
+  </div>
+<% end %>
